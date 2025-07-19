@@ -1,13 +1,283 @@
-body {
+html, body, #root {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ===== LAYOUT ===== */
+header, footer {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+nav a {
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: #eaeaea;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  background-color: #ccc;
+}
+
+
+/* ===== HOME PAGE ===== */
+.home-container {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn.secondary {
+  background-color: #6c757d;
+}
+
+.btn.secondary:hover {
+  background-color: #5a6268;
+}
+
+/* ===== TASKS PAGE ===== */
+.tasks-page {
+  padding: 2rem;
+}
+
+.tasks-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filters button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.filters button:hover {
+  background-color: #e0e0e0;
+}
+
+.filters .active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.task-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* ===== TASK CARD ===== */
+.task-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.task-card h4 {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-page {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-page h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.about-page p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.about-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-page ul li {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ===== DARK / LIGHT THEMES ===== */
+.theme-light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.theme-dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.theme-dark nav a {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+.theme-dark nav a:hover {
+  background-color: #444;
+}
+
+
+.task-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-status {
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.6rem;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.task-status.done {
+  color: green;
+  background-color: #e6ffe6;
+}
+
+.task-status.pending {
+  color: #b33c00;
+  background-color: #fff4e6;
+}
+
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: auto;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
